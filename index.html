@@ -17,10 +17,13 @@
 
       <ul>
         <li v-for="fruta of frutas">
-          {{ fruta.nome }} - {{ fruta.quantidade }}
+          <input type="number" v-model.number="fruta.quantidade" />
+          {{ fruta.nome }}
+          <button @click="fruta.quantidade=fruta.quantidade + 1">+</button>
           <span v-if="fruta.quantidade === 0"> - Sin estoque</span>
         </li>
       </ul>
+      <h4>TOTAL: {{ somarFrutas }}</h4>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

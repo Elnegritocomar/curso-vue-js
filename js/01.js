@@ -8,15 +8,24 @@ const app = new Vue({
       { nome: "abacaxi", quantidade: 11 },
       { nome: "banana", quantidade: 15 }
     ],
-    novaFruta: ""
+    novaFruta: "",
+    total: 0
   },
   methods: {
     agregarFruta() {
       this.frutas.push({
-        nome: this.novaFruta,
-        quantidade: 0
+        nome: this.novaFruta
       });
       this.novaFruta = "";
+    }
+  },
+  computed: {
+    somarFrutas() {
+      this.total = 0;
+      for (fruta of this.frutas) {
+        this.total = this.total + fruta.quantidade;
+      }
+      return this.total;
     }
   }
 });
